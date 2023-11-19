@@ -1,0 +1,36 @@
+.footer {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 0; 
+  }
+  .content {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .column h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .column a {
+    color: white;
+    text-decoration: none;
+  }
+  .bottomText {
+    margin-top: 1rem;
+    margin-bottom: 0; 
+    text-align: center;
+  }
