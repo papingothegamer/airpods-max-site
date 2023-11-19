@@ -7,7 +7,20 @@ const Info: React.FC = () => {
   const controls = useAnimation();
 
   useEffect(() => {
-    controls.start({ opacity: 1, y: 0 });
+    const handleScroll = () => {
+      const yOffset = window.pageYOffset;
+      const triggerOffset = 400;
+
+      if (yOffset > triggerOffset) {
+        controls.start({ opacity: 1, y: 0 });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [controls]);
 
   return (
@@ -20,15 +33,14 @@ const Info: React.FC = () => {
       <div className={styles['info-text']}>
         <h2>Airpods Max</h2>
         <p>
-  Immerse yourself in a world of superior sound quality with our latest collection of premium headphones.
-</p>
-<p>
-  Experience crystal-clear audio and unmatched comfort, making every moment a pleasure for your ears.
-</p>
-<p>
-  Whether you&apos;re a music enthusiast, gamer, or someone who appreciates top-notch audio, our headphones deliver an exceptional listening experience.
-</p>
-
+          Immerse yourself in a world of superior sound quality with our latest collection of premium headphones.
+        </p>
+        <p>
+          Experience crystal-clear audio and unmatched comfort, making every moment a pleasure for your ears.
+        </p>
+        <p>
+          Whether you're a music enthusiast, gamer, or someone who appreciates top-notch audio, our headphones deliver an exceptional listening experience.
+        </p>
       </div>
       <div className={styles['image-container']}>
         <Image
