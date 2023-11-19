@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../styles/Info.module.css';
 
 const Info: React.FC = () => {
   const controls = useAnimation();
+  const [animationStarted, setAnimationStarted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const yOffset = window.pageYOffset;
       const triggerOffset = 400;
 
-      if (yOffset > triggerOffset) {
+      if (yOffset > triggerOffset && !animationStarted) {
         controls.start({ opacity: 1, y: 0 });
+        setAnimationStarted(true);
       }
     };
 
@@ -21,7 +23,7 @@ const Info: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [controls]);
+  }, [controls, animationStarted]);
 
   return (
     <motion.div
